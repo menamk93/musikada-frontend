@@ -121,6 +121,7 @@ export default {
       //this.$router.push({name: "Home-logado"});
       //this.buttonClicked();
       this.$root.$emit('logado', true);
+      //this.$router.push({name: 'Home'})
     },
 
     clearForm() {
