@@ -2,7 +2,8 @@
   <div class="home">
      <HeaderWithoutBar/>
     <div class="home-body">
-      <h2>Enviar Cifras</h2>
+      <!-- <h2>Enviar Cifras</h2> -->
+      <CipherRegister/> 
     </div>
     <!-- <TopVideos /> -->
     <MusikadaFooter />
@@ -14,6 +15,7 @@
 /* import TopVideos from "@/components/TopVideos.vue"; */
 import MusikadaFooter from "@/components/MusikadaFooter.vue";
 import HeaderWithoutBar from "@/components/HeaderWithoutBar.vue"
+import CipherRegister from "@/components/CipherRegister.vue"
 
 
 export default {
@@ -21,7 +23,8 @@ export default {
   components: {
     MusikadaFooter,
     /* TopVideos, */
-    HeaderWithoutBar
+    HeaderWithoutBar,
+    CipherRegister
     
     
   },
@@ -33,11 +36,11 @@ export default {
 </script>
 
 <style scoped>
-.home-body {
+/* .home-body {
   display: flex;
   flex-direction: row;
   text-align: center;
-}
+} */
 /* .topEventos{
   display: flex;
   justify-content: center;

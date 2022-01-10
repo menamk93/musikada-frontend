@@ -69,10 +69,10 @@
               </div>
             </div>
           </div>
+          <!-- <div id="eventcard"><EventCard/></div>
           <div id="eventcard"><EventCard/></div>
           <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div> -->
         </Slick>
       </div>
     </div>
