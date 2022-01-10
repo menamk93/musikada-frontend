@@ -1,0 +1,282 @@
+<template>
+  <div class="container">
+      <div id="filter">
+        <b-form inline class="mb-2">
+          <b-form-select
+          class="mr-2"
+          v-model="filter.status"
+          :options="options"
+          >
+
+          </b-form-select> 
+
+          <b-form-input
+          class="mr-2"
+          placeholder="Digite o nome do evento"
+          v-model="filter.bairro"
+          >
+          </b-form-input>
+
+          <b-button variant="outline-secondary" title="buscar" @click="buscarFilter" class="mr-2">
+            Buscar
+          </b-button>
+
+          <b-button title="limpar filtro"  @click="limparFiltro">
+            <b-icon-trash></b-icon-trash>
+          </b-button> 
+        </b-form>
+      </div> 
+
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-12" >
+        <Slick ref="slick" :options="slickOptions" >       
+          <!-- <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div> -->
+          
+         </Slick>
+      </div>
+
+      <div class="col-md-12">
+        <Slick ref="slick" :options="slickOptions">
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+        </Slick>
+      </div>
+      
+      <div class="col-md-12" >
+        <Slick ref="slick" :options="slickOptions" >
+         <div v-for="(item, index) in items" :key="index.id" id="eventcard1">
+            <div class="event-card" >
+              <div class="header-event-card" @click="mostrarInfo">
+                <img :src="item.image" fluid alt="Responsive image" />
+              </div>
+              <div class="content-event-card">
+                <h4>{{item.event}}</h4>
+                <p>{{item.data}}</p>
+                <p>Vila da Gamek 2</p>
+              </div>
+              <div class="icons-event-card">
+                <div class="icons-heart">
+                  <b-icon icon="heart" font-scale="1"></b-icon>
+                </div>
+                <div class="icons-share">
+                  <b-icon icon="share-fill" font-scale="1"></b-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+          <div id="eventcard"><EventCard/></div>
+        </Slick>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+ 
+ import Slick from 'vue-slick';
+ import 'slick-carousel/slick/slick.css';
+ /* import TopEvents from './TopEvents.vue' */
+ /* import axios from "axios" */
+ import EventCard from './EventCard.vue'
+ import ItemsModel from '@/model/ItemsModel'
+ import Status from "@/valueObjects/status"
+ 
+
+  export default {
+    name: "SlickTeste",
+    components:{
+      Slick, 
+     /*  TopEvents, */
+      EventCard
+
+    },
+
+    data() {
+        return {
+          slickOptions: {
+              "dots": false,
+              "infinite": true,
+              "slidesToShow": 3,
+              "slidesToScroll": 1,
+              "initialSlide": 0,
+              "responsive": [
+                {
+                  "breakpoint": 1024,
+                  "settings": {
+                    "slidesToShow": 3,
+                    "slidesToScroll": 3,
+                    "infinite": true,
+                    "dots": true
+                  }
+                },
+                {
+                  "breakpoint": 1000,
+                  "settings": {
+                    "slidesToShow": 2,
+                    "slidesToScroll": 2,
+                    "initialSlide": 2
+                  }
+                },
+                {
+                  "breakpoint": 800,
+                  "settings": {
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1
+                  }
+                }
+              ]
+            },
+
+      items: [],
+      status: Status,
+      filter: {
+          bairro: null,
+          status: null
+      },
+
+      options: [
+        { value: null, text: "Filtrar por" },
+        { value: Status.ATIVO, text: "Ativo" },
+        { value: Status.INATIVO, text: "Inativo" },
+        { value: Status.BAIRRO, text: "Bairro" },
+        { value: Status.ORGANIZADOR, text: "Organizador" },
+        
+      ],
+      };
+    },
+
+    async created() {
+      this.items = await ItemsModel.get();
+
+    },
+
+  methods: {
+    async limparFiltro(){
+      this.filter = {
+          bairro: null,
+          status: null
+      }
+      this.items = await ItemsModel.params({
+          status: [
+              this.status.ATIVO,
+              this.status.INATIVO,
+              this.status.BAIRRO,
+              this.status.ORGANIZADOR,
+          ]
+
+      }).get();
+    },
+
+    mostrarInfo(){
+        this.$router.push({name:"EventoExpandido"});
+    },
+
+    async buscarFilter(){
+        let filter = { ... this.filter}
+        filter = this.clean(filter)
+        this.items = await ItemsModel.params(filter).get();
+    },
+
+    clean(obj){
+        for(var propName in obj){
+            if(obj[propName] === null || obj[propName] === undefined){
+                delete obj[propName]
+            }
+        }
+        return obj;
+    }
+
+  }
+
+  }
+</script>
+
+
+
+<style scoped>
+.slick-prev 
+.slick-next 
+.slick-arrow {
+    cursor: pointer;
+    float: right !important;
+    width: 50px;
+    height: 20px;
+    font-size: 10px;
+
+}
+
+button.slick-prev.slick-arrow{
+    cursor: pointer;
+    float: right !important;
+    width: 50px !important;
+    height: 20px;
+    font-size: 10px;
+
+}
+
+#eventcard{
+ padding-right: 10px;
+  
+}
+
+
+.event-card {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); */
+  overflow: auto;
+  min-width: 10%; 
+  max-width: 100%;
+  background-color: #c4c4c4;
+}
+.header-event-card, .icons-heart, .icons-share:hover {
+  cursor: pointer;
+}
+.header-event-card img {
+  width: 100%;
+}
+.content-event-card {
+  padding-top: 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+.content-event-card h4 {
+  letter-spacing: -0.015em;
+  font-size: 1em;
+  font-weight: bold;
+}
+.content-event-card p {
+  margin-bottom: 0;
+}
+.icons-event-card {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons-heart {
+    padding-right: 25px;
+}
+
+p {font-size: 1.1vw;}
+
+h4 {font-size: 1.5vw;}
+
+ #eventcard1 {
+ 
+  padding: 10px;
+  display: flex;
+  
+}
+
+  
+</style>
