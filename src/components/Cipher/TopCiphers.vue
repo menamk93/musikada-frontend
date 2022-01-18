@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Cipher from "@/components/Cipher.vue";
+import Cipher from "@/components/Cipher/Cipher.vue";
 
 export default {
   name: "TopCiphers",

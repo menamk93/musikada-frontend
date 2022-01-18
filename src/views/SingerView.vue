@@ -14,7 +14,7 @@
       <div class="topEventos">
          <!-- <TopEvents /> -->
           <!-- <Slick /> -->
-          <SlickTeste />
+          <Carousel />
       </div>
     </div>
     <TopVideos />
@@ -24,13 +24,12 @@
 
 <script>
 
-import TopVideos from "@/components/TopVideos.vue";
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-/* import Slick from "@/components/Slick.vue" */
-import TopSinger from "@/components/TopSinger.vue"
-import TopNote from "@/components/TopNote.vue"
-import Header from "@/components/Header.vue"
-import SlickTeste from "@/components/SlickTeste.vue"
+import TopVideos from "@/components/Videos/TopVideos.vue";
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import TopSinger from "@/components/Singer/TopSinger.vue"
+import TopNote from "@/components/Note/TopNote.vue"
+import Header from "../components/Header/Header.vue"
+import Carousel from "../components/Carousel/Carousel.vue"
 
 
 export default {
@@ -42,7 +41,7 @@ export default {
     TopSinger,
     TopNote, 
     Header, 
-    SlickTeste
+    Carousel
     
     
   },

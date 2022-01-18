@@ -19,8 +19,8 @@
 
 <script>
 
-import Cadastro from "../views/Cadastro.vue"
-import Login from "../views/Login.vue"
+import Cadastro from "../components/Register/Cadastro.vue"
+import Login from "../components/Login/Login.vue"
   export default {
     components:
     {

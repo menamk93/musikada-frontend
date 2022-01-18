@@ -120,8 +120,9 @@ export default {
       this.closeModal();
       //this.$router.push({name: "Home-logado"});
       //this.buttonClicked();
-      this.$root.$emit('logado', true);
+      /* this.$root.$emit('logado', true); */
       //this.$router.push({name: 'Home'})
+      this.loged();
     },
 
     clearForm() {
@@ -146,6 +147,9 @@ export default {
 
     goToRegister() {
       this.$router.push({ name: "register" });
+    },
+    loged(){
+       this.$root.$emit('logado', 'log');
     }
   },
 }

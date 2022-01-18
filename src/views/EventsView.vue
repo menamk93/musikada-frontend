@@ -4,7 +4,7 @@
     <div class="home-body">
       <AnnounceEvent/>
     </div>
-    <!-- <TopVideos /> -->
+    <!-- <TopVideos /> --> 
     <MusikadaFooter /> 
   </div>
 </template>
@@ -12,9 +12,9 @@
 <script>
 
 /* import TopVideos from "@/components/TopVideos.vue"; */
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-import HeaderWithoutBar from "@/components/HeaderWithoutBar.vue"
-import AnnounceEvent from "@/components/AnnounceEvent.vue"
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import HeaderWithoutBar from "@/components/Header/HeaderWithoutBar.vue"
+import AnnounceEvent from "@/components/Eventos/AnnounceEvent.vue"
 
 
 export default {

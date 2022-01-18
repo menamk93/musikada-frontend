@@ -30,7 +30,7 @@
 <script>
 
 /* import axios from "axios" */
-import DataModel from "../model/DataModel"
+import DataModel from "../../model/DataModel"
 
 export default {
     name: 'TopSinger',

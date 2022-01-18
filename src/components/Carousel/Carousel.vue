@@ -86,7 +86,7 @@
  import 'slick-carousel/slick/slick.css';
  /* import TopEvents from './TopEvents.vue' */
  /* import axios from "axios" */
- import EventCard from './EventCard.vue'
+ import EventCard from '../Eventos/EventCard.vue'
  import ItemsModel from '@/model/ItemsModel'
  import Status from "@/valueObjects/status"
  

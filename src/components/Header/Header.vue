@@ -19,9 +19,7 @@
 
         <b-navbar-nav v-if="logado == false" class="ml-auto" text-variant="white">
           <div>
-            <!-- <b-nav-item @click="gotToModal">Entrar</b-nav-item> -->
             <b-nav-item @click="modalShow = !modalShow">Entrar</b-nav-item>
-           <!--  <b-button @click="modalShow = !modalShow">Open M0dal</b-button>-->
            <b-modal v-model="modalShow">
              <Modal />
            </b-modal>
@@ -66,7 +64,7 @@
 </template>
 
 <script>
-import Modal from "../views/Modal.vue"
+import Modal from "@/views/Modal.vue"
 
 export default {
   name: "Header",
@@ -82,18 +80,18 @@ export default {
     };
   },
 
-   /* mounted: function () { 
-    this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
-     this.modalShow = text;
-     this.logado = !text;
-     //console.log(text)
-    })
-  }, */
+  mounted: function () { 
+      this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
+      this.modalShow = text;
+      //this.logado = !text;
+      //console.log(text)
+      })
+    }, 
 
-  mounted(){
+  /* mounted(){
     console.log(this.$views)
   },
-
+ */
 
   methods: {
     gotToSinger(){
@@ -113,6 +111,9 @@ export default {
     },
     gotToLogin(){
       this.$router.push({name:"Login"});
+    },
+    teste () {
+      console.log('teste') // someValue
     }
   },
 

@@ -32,11 +32,11 @@ const routes = [
         name: "AboutUsView",
         component: () => import ('../views/AboutUsView.vue')
     },
-    {
+    /* {
         path: '/login',
         name: "Login",
         component: () => import ('../views/Login.vue')
-    },
+    }, */
     {
         path: '/modal',
         name: "Modal",

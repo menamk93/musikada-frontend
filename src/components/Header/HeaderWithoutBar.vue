@@ -11,30 +11,40 @@
         <b-navbar-nav>
           <b-nav-item @click="gotToHome">Página inicial</b-nav-item>
           <b-nav-item @click="gotToSinger">Cantor</b-nav-item>
-          <b-nav-item @click="gotToCiphers">Enviar cifras</b-nav-item>
+          <b-nav-item @click="gotToCiphers">Enviar cifras</b-nav-item> 
           <b-nav-item @click="gotToEvents">Anunciar evento</b-nav-item>
           <b-nav-item @click="gotToAbout">Sobre nós</b-nav-item> 
           <b-nav-item ></b-nav-item>
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto" text-variant="white">
-          <div class="avatar-bell-user">
-            <div class="bell" style="font-size: 3rem">
-              <b-icon icon="bell-fill" class="p-2"></b-icon>
+        <b-navbar-nav v-if="logado == false" class="ml-auto" text-variant="white">
+          <div>
+            <!-- <b-nav-item @click="gotToModal">Entrar</b-nav-item> -->
+            <b-nav-item @click="modalShow = !modalShow">Entrar</b-nav-item>
+           <!--  <b-button @click="modalShow = !modalShow">Open M0dal</b-button>-->
+           <b-modal v-model="modalShow">
+             <Modal />
+           </b-modal>
+          </div>
+        </b-navbar-nav>
+        <b-navbar-nav v-else-if="logado == true" class="ml-auto" text-variant="white">
+          <div class="avatar-bell-user" id="log">
+            <div class="bell" style="font-size: 2rem">
+              <b-icon icon="bell-fill" class="p-1"></b-icon>
             </div>
             <div class="avatar">
               <b-avatar
                 variant="dark"
-                badge="7"
+                badge="2"
                 badge-variant="danger"
+                size="1.8rem"
               ></b-avatar>
             </div>
             <div class="user">
               <b-nav-item-dropdown right>
                 <!-- Using 'button-content' slot -->
                 <template #button-content>
-                  <em>Xand Lara</em>
+                  <em>Hasman</em>
                 </template>
                 <b-dropdown-item href="#">Profile</b-dropdown-item>
                 <b-dropdown-item href="#">Sign Out</b-dropdown-item>
@@ -44,50 +54,37 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <div id="search">
-      <b-navbar>
-        <b-nav-form>
-          <b-form-input id="search-bar" class="mr-sm-2" placeholder="Qual musica tocar?"></b-form-input>
-          <b-button id="search-button" class="my-2 my-sm-0" type="submit">Pesquisar</b-button>
-        </b-nav-form>
-      </b-navbar>
-    </div>
-     <router-view>
-      <Home />
-    </router-view>
+    <div id="search"></div>
   </div>
 </template>
 
 <script>
-/* import Login from "../views/Login.vue" */
-import Modal from "../views/Modal.vue"
-import Home from "../views/Home.vue"
+import Modal from "../../views/Modal.vue"
 
 export default {
   name: "Header",
   components: 
   {
-    Home,
     Modal
   },
-  props: ["Perfil", "Entrar", "Sair"],
+  
   data() {
     return {
-      resultado: "",
-      teste: true,
-      objeto: [],
-      modalShow: false
+      modalShow: false, 
+      logado: false
     };
   },
+
+   mounted: function () { 
+    this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
+     this.modalShow = text;
+     this.logado = !text;
+     //console.log(text)
+    })
+  },
+
+
   methods: {
-    getDataInDataBase() {
-      const objectoLocal = [
-        { name: "Mena", idade: "20" },
-        { name: "Artur", idade: "19" },
-        { name: "Joao", idade: "15" },
-      ];
-      this.objeto = objectoLocal;
-    },
     gotToSinger(){
       this.$router.push({name:"SingerView"});
     },
@@ -107,6 +104,7 @@ export default {
       this.$router.push({name:"Login"});
     }
   },
+
 };
 </script>
 
@@ -144,6 +142,7 @@ em {
 #search {
   background-color: #f0833b !important;
   opacity: 0.9;
+  padding: 27px;
 }
 
 #search-bar {
@@ -154,5 +153,12 @@ em {
 #search-button {
   background-color: #CCCCCC;
   color: black;
+}
+
+#log{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: row;
 }
 </style>

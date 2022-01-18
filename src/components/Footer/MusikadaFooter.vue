@@ -24,10 +24,10 @@
         <div class="footer-redes">
           <h5>Siga-nos</h5>
           <div class="redes" style="font-size: 1.5rem">
-            <div class="facebook"><a href="http://www.facebook.com" target="_blank"><img src="../assets/images/facebook_icon.png"></a></div>
-            <div class="instagram"><img src="../assets/images/instagram_icon.png"></div>
+            <div class="facebook"><a href="http://www.facebook.com" target="_blank"><img src="@/assets/images/facebook_icon.png"></a></div>
+            <div class="instagram"><img src="@/assets/images/instagram_icon.png"></div>
             <!-- <div class="linkedin"><img src="../assets/images/instagram.png"></div> -->
-            <div class="linkedin"><img src="../assets/images/linkedin-icon.jpg"></div>
+            <div class="linkedin"><img src="@/assets/images/linkedin-icon.jpg"></div>
           </div>
         </div>
       </div>

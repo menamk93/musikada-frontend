@@ -30,8 +30,8 @@
 
 <script>
 
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-import HeaderWithoutBar from "@/components/HeaderWithoutBar.vue"
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import HeaderWithoutBar from "@/components/Header/HeaderWithoutBar.vue"
 
 
 export default {
@@ -200,3 +200,43 @@ export default {
 
 
 </style>
+
+<!--
+<template>
+  <div>
+    <a @click="inc">incrementar</a><br><br>
+    <a @click="dec">decrementar</a> <br><br>
+    {{$store.state.count}}
+  </div>
+</template>
+
+<script>
+
+
+export default({
+  computed: {
+    count:{
+      set(v){
+        this.$store.commit('setCount', v)
+      },
+      get(){
+        return this.$store.state.count
+      }
+      
+    }
+  },
+
+  methods: {
+    inc(){
+      this.count = this.count + 1;
+    },
+
+    dec(){
+      this.count = this.count - 1;
+    }
+  }
+  
+})
+
+
+</script> -->

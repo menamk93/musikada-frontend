@@ -10,7 +10,7 @@
       <div class="topEventos">
          <!-- <TopEvents /> -->
          <!--  <Slick /> -->
-          <SlickTeste />
+          <Carousel />
       </div>
     </div>
     <TopVideos />
@@ -19,12 +19,11 @@
 </template>
 
 <script>
-import TopCiphers from "@/components/TopCiphers.vue";
-import Header from "@/components/Header.vue";
-import TopVideos from "@/components/TopVideos.vue";
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-/* import Slick from "@/components/Slick.vue" */
-import SlickTeste from "@/components/SlickTeste.vue"
+import TopCiphers from "@/components/Cipher/TopCiphers.vue";
+import Header from "@/components/Header/Header.vue";
+import TopVideos from "@/components/Videos/TopVideos.vue";
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import Carousel from "@/components/Carousel/Carousel.vue"
 
 
 export default {
@@ -35,7 +34,7 @@ export default {
     TopVideos,
     /* Slick,  */
     Header,
-    SlickTeste
+    Carousel
   },
   data() {
       return {

@@ -13,9 +13,9 @@
 <script>
 
 /* import TopVideos from "@/components/TopVideos.vue"; */
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-import HeaderWithoutBar from "@/components/HeaderWithoutBar.vue"
-import CipherRegister from "@/components/CipherRegister.vue"
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import HeaderWithoutBar from "@/components/Header/HeaderWithoutBar.vue"
+import CipherRegister from "@/components/Cipher/CipherRegister.vue"
 
 
 export default {

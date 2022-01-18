@@ -24,7 +24,7 @@
          
 
 <script>
- import EventCard from "../components/EventCard.vue"; 
+ import EventCard from "../EventCard.vue"; 
  import axios from "axios"
 
 export default {

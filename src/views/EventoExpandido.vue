@@ -53,8 +53,8 @@
 
 <script>
 
-import MusikadaFooter from "@/components/MusikadaFooter.vue";
-import HeaderWithoutBar from "@/components/HeaderWithoutBar.vue"
+import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
+import HeaderWithoutBar from "@/components/Header/HeaderWithoutBar.vue"
 import DataModel from "../model/DataModel"
 import  {mdbGoogleMap}  from 'mdbvue';
 
