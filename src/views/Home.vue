@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header/>
+    <HeaderHome/>
     <div class="home-body">
       
       <div class="topCipher">
@@ -20,7 +20,7 @@
 
 <script>
 import TopCiphers from "@/components/Cipher/TopCiphers.vue";
-import Header from "@/components/Header/Header.vue";
+import HeaderHome from "@/components/Header/HeaderHome.vue";
 import TopVideos from "@/components/Videos/TopVideos.vue";
 import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
 import Carousel from "@/components/Carousel/Carousel.vue"
@@ -33,13 +33,16 @@ export default {
     MusikadaFooter,
     TopVideos,
     /* Slick,  */
-    Header,
+    HeaderHome,
     Carousel
   },
   data() {
       return {
       }
-    }
+    },
+
+   
+
 };
 </script>
 

@@ -62,9 +62,9 @@
       </b-navbar>
     </div>
     <div>
-      {{filter}}<br>
+      <!-- {{filter}}<br>
       <div v-for="(dado, index) in dados" :key="index.id">{{dado.name}}</div>
-      <br>
+      <br> -->
       <!-- {{dados}} -->
     </div>
   </div>
@@ -98,9 +98,9 @@ export default {
 
    mounted: function () { 
     this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
-      this.modalShow = text;
-      this.logado = !text;
-      /* console.log(this.dados) */
+     this.modalShow = text;
+     this.logado = !text;
+     /* console.log(this.dados) */
     })
   }, 
 

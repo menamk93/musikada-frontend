@@ -96,7 +96,7 @@ export default {
 
   methods: {
     async login() {
-      this.$v.$touch(); 
+      this.$v.$touch();  
       if (this.$v.$error) return;
 
       let user = await UsersModel.params({email: this.form.email}).get();

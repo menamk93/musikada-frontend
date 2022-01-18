@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header/>
+    <HeaderSinger/>
     <div class="home-body">
       <div class="topSinger">
         <div class="topSing">
@@ -9,11 +9,12 @@
         <div class="topNote">
           <!-- <TopEvents /> -->
             <TopNote />
+            <!-- {{teste}} -->
+            <div v-for="(data, index) in dataReceivedFromHeader" :key="index.id">{{data.name}}</div>
         </div>
       </div>
       <div class="topEventos">
          <!-- <TopEvents /> -->
-          <!-- <Slick /> -->
           <Carousel />
       </div>
     </div>
@@ -28,8 +29,8 @@ import TopVideos from "@/components/Videos/TopVideos.vue";
 import MusikadaFooter from "@/components/Footer/MusikadaFooter.vue";
 import TopSinger from "@/components/Singer/TopSinger.vue"
 import TopNote from "@/components/Note/TopNote.vue"
-import Header from "../components/Header/Header.vue"
-import Carousel from "../components/Carousel/Carousel.vue"
+import HeaderSinger from "@/components/Header/HeaderSinger.vue"
+import Carousel from "@/components/Carousel/Carousel.vue"
 
 
 export default {
@@ -37,18 +38,24 @@ export default {
   components: {
     MusikadaFooter,
     TopVideos,
-    /* Slick, */
     TopSinger,
     TopNote, 
-    Header, 
+    HeaderSinger, 
     Carousel
-    
     
   },
   data() {
       return {
+        dataReceivedFromHeader:[]
       }
-    }
+    },
+     mounted: function () { 
+    this.$root.$on('myEvents', (text) => { // here you need to use the arrow function
+      //this.modalShow = text;
+      this.dataReceivedFromHeader = text;
+      /* console.log(this.dados) */
+    })
+  }, 
 };
 </script>
 
