@@ -80,18 +80,29 @@ export default {
     };
   },
 
-  mounted: function () { 
+  /* mounted: function () { 
       this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
-      this.modalShow = text;
+      this.modalShow = text; */
       //this.logado = !text;
       //console.log(text)
-      })
-    }, 
+     /*  })
+    }, */
 
   /* mounted(){
     console.log(this.$views)
   },
  */
+   mounted: function () { 
+    this.$root.$on('myEvent', (text) => { // here you need to use the arrow function
+     this.modalShow = text;
+     this.logado = !text;
+     //console.log(text)
+    })
+  }, 
+
+  /* mounted(){
+    console.log(this.$views)
+  }, */
 
   methods: {
     gotToSinger(){

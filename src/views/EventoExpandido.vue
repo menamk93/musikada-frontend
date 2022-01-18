@@ -12,7 +12,7 @@
         <!-- {{dados}} -->
         <div class="sing" v-for="(item, index) of dados" :key="index.id" >
             <!-- <div v-for="(song, index) in dados.titulo" :key="index.id"> -->
-                <div v-if="index >= 15">
+                <div v-if="index === 15">
                   <div class="container">
                     <div class="row">
                       <div class="col" id="evento">
@@ -95,25 +95,25 @@ export default {
 } */
 
 #imgfundo{
-        background-image: url("../assets/images/nomalanga.png");
-        width: 100%;
-        height: 400px;
-        border-bottom: 1px solid black;    
-        opacity: 0.4;
-    }
-    #imgevento{
-        position: absolute;
-        width: 40%;
-        height: 400px;
-        margin-top: -400px;
-        margin-left: 30%;
-    }
+    background-image: url("../assets/images/nomalanga.png");
+    width: 100%;
+    height: 400px;
+    border-bottom: 1px solid black;    
+    opacity: 0.4;
+  }
+#imgevento{
+    position: absolute;
+    width: 40%;
+    height: 400px;
+    margin-top: -400px;
+    margin-left: 30%;
+  }
 
-    #evento {
-      float: left;
-      padding: 0;
-      margin: 0;
-      width: 50%;
-    }
+#evento {
+  float: left;
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  }
 
 </style>
