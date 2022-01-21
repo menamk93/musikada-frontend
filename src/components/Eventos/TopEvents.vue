@@ -132,7 +132,7 @@ export default {
 
       return items; */
 
-       let items = [];
+      let items = [];
       items = this.items.filter((item) => {
         return (
           item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||

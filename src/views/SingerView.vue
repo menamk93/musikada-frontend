@@ -10,7 +10,7 @@
           <!-- <TopEvents /> -->
             <TopNote />
             <!-- {{teste}} -->
-            <div v-for="(data, index) in dataReceivedFromHeader" :key="index.id">{{data.name}}</div>
+            <div v-for="(data, index) in dataReceivedFromHeader" :key="index.id">{{data.name[0].toUpperCase() + data.name.substr(1)}}</div>
         </div>
       </div>
       <div class="topEventos">

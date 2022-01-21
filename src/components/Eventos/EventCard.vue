@@ -4,10 +4,10 @@
       <b-col>
         <div class="event-card">
           <div class="header-event-card" @click="mostrarInfo">
-            <img :src="dados[14].image" fluid alt="Responsive image" />
+            <img :src="dados[11].image" fluid alt="Responsive image" />
           </div>
           <div class="content-event-card">
-            <h4>{{dados[14].evento}}</h4>
+            <h4>{{dados[11].evento}}</h4>
             <!-- <h4>SABADÂO QUALQUER</h4> -->
             <p>20 DE MAIO</p>
             <p>Vila da Gamek 2</p>

@@ -54,17 +54,16 @@
     </b-navbar>
     <div id="search">
       <b-navbar>
-        
         <b-nav-form>
-          <b-form-input v-model="filter.bairro" id="search-bar" class="mr-sm-2" placeholder="Qual musica tocar?"></b-form-input>
+          <b-form-input v-on:keyup.enter="buscarFilter" v-model="filter.name" id="search-bar" class="mr-sm-2" placeholder="Qual musica tocar?"></b-form-input>
           <b-button @click="buscarFilter" id="search-button" class="my-2 my-sm-0">Pesquisar</b-button>
         </b-nav-form>
       </b-navbar>
     </div>
     <div>
-      <!-- {{filter}}<br>
-      <div v-for="(dado, index) in dados" :key="index.id">{{dado.name}}</div>
-      <br> -->
+      {{filter}}<br>
+     <!--  <div v-for="(dado, index) in dados" :key="index.id">{{dado.name}}</div>
+      <br> --> 
       <!-- {{dados}} -->
     </div>
   </div>
@@ -72,7 +71,7 @@
 
 <script>
 import Modal from "@/views/Modal.vue"
-import ItemsModel from '../../model/ItemsModel'
+import SingerModel from '../../model/SingerModel'
 
 export default {
   name: "Header",
@@ -87,13 +86,13 @@ export default {
       modalShow: false, 
       logado: false,
       filter: {
-        bairro: null
+        name: null
         }
     };
   },
 
     async created() {
-      this.dados = await ItemsModel.get();
+      this.dados = await SingerModel.get();
     },
 
    mounted: function () { 
@@ -126,26 +125,35 @@ export default {
     },
     
     async buscarFilter(){
-        let filter = { ... this.filter}
-        filter = this.clean(filter)
-        this.dados = await ItemsModel.params(filter).get();
+      let filter = { ... this.filter}
+      filter = this.clean(filter)
+      this.dados = await SingerModel.params(filter).get();
 
-        this.$root.$emit('myEvents', this.dados);
-        /* this.singerFilter(this.dados)  */
-    },
-
-     clean(obj){
-        for(var propName in obj){
-            if(obj[propName] === null || obj[propName] === undefined){
-                delete obj[propName]
-            }
-        }
-        return obj;
-    },
-     /* singerFilter(dados){
-       this.$root.$emit('singer', dados);
-    } */
+      this.$root.$emit('myEvents', this.dados);
+      
   },
+
+    clean(obj){
+      for(var propName in obj){
+          if(obj[propName] === null || obj[propName] === undefined){
+              delete obj[propName]
+          }
+      }
+      return obj;
+    },
+  },
+  /* computed: {
+    bscarFilter(){
+      let valores = []; 
+
+      valores = this.dados.filter((dado) => {
+        return (
+          dado.name.toLowerCase().indexOf(this.filter.name.toLowerCase()) > -1
+        )
+      })
+      return valores;
+    }
+  } */
 
 };
 </script>

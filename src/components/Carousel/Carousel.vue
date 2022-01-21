@@ -21,9 +21,9 @@
             Buscar
           </b-button>
 
-          <b-button title="limpar filtro"  @click="limparFiltro">
+         <!--  <b-button title="limpar filtro"  @click="limparFiltro">
             <b-icon-trash></b-icon-trash>
-          </b-button> 
+          </b-button> --> 
         </b-form>
       </div> 
 
