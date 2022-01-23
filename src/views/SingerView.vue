@@ -10,7 +10,7 @@
           <!-- <TopEvents /> -->
             <TopNote />
             <!-- {{teste}} -->
-            <div v-for="(data, index) in dataReceivedFromHeader" :key="index.id">{{data.name[0].toUpperCase() + data.name.substr(1)}}</div>
+            <!-- <div v-for="(data, index) in dataReceivedFromHeader" :key="index.id">{{data.name[0].toUpperCase() + data.name.substr(1)}}</div> -->
         </div>
       </div>
       <div class="topEventos">
@@ -49,13 +49,12 @@ export default {
         dataReceivedFromHeader:[]
       }
     },
-     mounted: function () { 
+
+   /*  mounted: function () { 
     this.$root.$on('myEvents', (text) => { // here you need to use the arrow function
-      //this.modalShow = text;
       this.dataReceivedFromHeader = text;
-      /* console.log(this.dados) */
     })
-  }, 
+  },  */
 };
 </script>
 

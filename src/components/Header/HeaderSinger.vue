@@ -55,13 +55,13 @@
     <div id="search">
       <b-navbar>
         <b-nav-form>
-          <b-form-input v-on:keyup.enter="buscarFilter" v-model="filter.name" id="search-bar" class="mr-sm-2" placeholder="Qual musica tocar?"></b-form-input>
+          <b-form-input @keyup.enter="buscarFilter" v-model="filter.name" id="search-bar" class="mr-sm-2" placeholder="Qual musica tocar?"></b-form-input>
           <b-button @click="buscarFilter" id="search-button" class="my-2 my-sm-0">Pesquisar</b-button>
         </b-nav-form>
       </b-navbar>
     </div>
     <div>
-      {{filter}}<br>
+     <!--  {{filter}}<br> -->
      <!--  <div v-for="(dado, index) in dados" :key="index.id">{{dado.name}}</div>
       <br> --> 
       <!-- {{dados}} -->
@@ -86,7 +86,8 @@ export default {
       modalShow: false, 
       logado: false,
       filter: {
-        name: null
+        name: null,
+
         }
     };
   },
