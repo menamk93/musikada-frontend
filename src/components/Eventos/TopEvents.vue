@@ -4,6 +4,7 @@
       <b-row> 
          <b-col>
             <EventCard />
+            
           </b-col>
            <!-- <b-col>
             <EventCard />

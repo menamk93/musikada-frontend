@@ -1,99 +1,148 @@
 <template>
-  <div class="event">
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group
-        id="input-group-1"
-        label="Email address:"
-        label-for="input-1"
-        description="We'll never share your email with anyone else."
-      >
-        <b-form-input
-          id="input-1"
-          v-model="form.email"
-          type="email"
-          placeholder="Enter email"
-          required
-        ></b-form-input>
-      </b-form-group>
+  <div>
+    <b-container>
+      <b-row class="my-4 ">
+        <b-col sm="2" >
+          <label for="input-default">Nome do cantor:</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-input id="input-default" v-model="singer"></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row >
+        <b-col>
+          <b-row class="my-4 ">
+            <b-col sm="4">
+              <label style="margin-left: 80%" for="input-default">Foto:</label>
+            </b-col>
+            <b-col sm="8">
+               <b-form-file v-model="file" plain></b-form-file>
+            </b-col>
+          </b-row>
+        </b-col>
 
-      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="form.name"
-          placeholder="Enter name"
-          required
-        ></b-form-input>
-      </b-form-group>
 
-      <b-form-group id="input-group-3" label="Food:" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="form.food"
-          :options="foods"
-          required
-        ></b-form-select>
-      </b-form-group>
+        <b-col>
+          <b-row >
+            <b-col>
+              <b-row class="my-4 ">
+                <b-col sm="4">
+                  <label style="margin-left: 80%" for="input-default">Data inicio:</label>
+                </b-col>
+                <b-col sm="8">
+                  <b-form-datepicker v-model="datei" :min="min" :max="max" locale="br"></b-form-datepicker>
+                </b-col>
+              </b-row>
+            </b-col>
+            <b-col>
+              <b-row class="my-4">
+                <b-col sm="3">
+                  <label style="margin-left: 80%" for="input-default">Hora de Início:</label>
+                </b-col>
+                <b-col sm="7">
+                  <b-form-timepicker v-model="houri" show-seconds locale="br"></b-form-timepicker>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
 
-      <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
-        <b-form-checkbox-group
-          v-model="form.checked"
-          id="checkboxes-4"
-          :aria-describedby="ariaDescribedby"
-        >
-          <b-form-checkbox value="me">Check me out</b-form-checkbox>
-          <b-form-checkbox value="that">Check that out</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
-    </b-form>
-    <!-- <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card> -->
+          <b-row >
+            <b-col>
+              <b-row class="my-4 ">
+                <b-col sm="4">
+                  <label style="margin-left: 80%" for="input-default">Data Término:</label>
+                </b-col>
+                <b-col sm="8">
+                  <b-form-datepicker v-model="datef" :min="min" :max="max" locale="br"></b-form-datepicker>
+                </b-col>
+              </b-row>
+            </b-col>
+            <b-col>
+              <b-row class="my-4">
+                <b-col sm="3">
+                  <label style="margin-left: 80%" for="input-default">Hora do érmino:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-timepicker v-model="hourf" show-seconds locale="br"></b-form-timepicker>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+
+        </b-col>
+
+
+      </b-row>
+      <b-row class="my-4">
+        <b-col sm="2">
+          <label for="input-default">Título da música:</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-input id="input-default" v-model="title"></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row class="my-4">
+        <b-col sm="2">
+          <label for="input-default">Música:</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-textarea id="textarea-rows" rows="12" v-model="text" ></b-form-textarea>
+        </b-col>
+      </b-row>
+      <b-row class="my-5">
+        <b-col class="col text-center"><b-button @click="submit" class="btn btn-default">Enviar</b-button></b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
- 
+
 <script>
   export default {
     data() {
       return {
-        form: {
-          email: '',
-          name: '',
-          food: null,
-          checked: []
-        },
-        foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
-        show: true
-      }
-    },
-    methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
-      },
-      onReset(event) {
-        event.preventDefault()
-        // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        this.form.food = null
-        this.form.checked = []
-        // Trick to reset/clear native browser form validation state
-        this.show = false
-        this.$nextTick(() => {
-        this.show = true
-        })
+        singer: '',
+        title: '',
+        text: '',
+        file: '',
+
+
+        types: [
+          'text',
+          'number',
+          'email',
+          'password',
+          'search',
+          'url',
+          'tel',
+          'date',
+          'time',
+          'range',
+          'color'
+        ]
       }
     }
   }
 </script>
 
 <style scoped>
-    .event{
-        padding: 50px;
-        padding-left: 100px;
-        padding-right: 100px;
-    }
+
+.btn {
+  background-color: #f0833b  !important;
+  color: black !important;
+  padding-left: 30px;
+  padding-right: 30px;
+  
+}
+
+.my-4{
+  margin: 0 ;
+  width:85% /* value of your choice which suits your alignment */
+  
+}
+
+#input-default, #textarea-rows{
+  background-color: #c4c4c4;
+}
+
 </style>

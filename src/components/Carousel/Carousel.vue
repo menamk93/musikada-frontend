@@ -2,15 +2,9 @@
   <div class="container">
       <div id="filter">
         <b-form inline class="mb-2">
-          <b-form-select class="mr-2" v-model="filter.status" :options="options"> 
-
-          </b-form-select> 
-
-          <b-form-input class="mr-2" placeholder="Digite o nome do evento" v-model="filter.bairro">
-          </b-form-input>
-
+          <b-form-select class="mr-2" v-model="filter.status" :options="options"></b-form-select> 
+          <b-form-input class="mr-2" placeholder="Digite o nome do evento" v-model="filter.bairro"></b-form-input>
           <b-button variant="outline-secondary" title="buscar" @click="buscarFilter" class="mr-2">Buscar</b-button>
-
          <!--  <b-button title="limpar filtro"  @click="limparFiltro">
             <b-icon-trash></b-icon-trash>
           </b-button> --> 
@@ -20,7 +14,7 @@
     <br>
     <div class="row justify-content-center">
       <div class="col-md-12" >
-        <b-container class="test">
+        <b-container>
           <b-row>
             <b-col>
               <carousel 
@@ -35,56 +29,23 @@
               :centerMode='true'
               :navigationClickTargetSize=0
               >
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
-                <slide>
-                  <div id="eventcard"><EventCard/></div>
-                </slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide>
               </carousel>
             </b-col>
           </b-row>
         </b-container> 
-        <!-- <Slick ref="slick" :options="slickOptions" > -->       
-          <!-- <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div> -->
-          
-         <!-- </Slick> -->
       </div>
       <br>
       
-      <!-- <div class="col-md-12">
-        <Slick ref="slick" :options="slickOptions">
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-        </Slick>
-      </div> -->
-      
-      <div class="col-md-12" >
-        <!-- <Slick ref="slick" :options="slickOptions" > -->
-          
-          <b-container class="test">
+      <div class="col-md-12" >         
+          <b-container>
             <b-row>
               <b-col>
                 <carousel 
@@ -99,7 +60,6 @@
                 :centerMode='true'
                 :navigationClickTargetSize=0         
                 >
-                  <!-- <div v-for="(item, index) in items" :key="index.id"> -->
                  
                     <slide v-for="(item, index) in items" :key="index.id" id="eventcard">
                       <div class="event-card" >
@@ -121,39 +81,10 @@
                         </div>
                       </div>
                     </slide>
-                  <!-- </div> -->
                 </carousel>
               </b-col>
             </b-row>
           </b-container> 
-         
-        
-
-         <!-- <div v-for="(item, index) in items" :key="index.id" id="eventcard1">
-            <div class="event-card" >
-              <div class="header-event-card" @click="mostrarInfo">
-                <img :src="item.image" fluid alt="Responsive image" />
-              </div>
-              <div class="content-event-card">
-                <h4>{{item.event}}</h4>
-                <p>{{item.data}}</p>
-                <p>Vila da Gamek 2</p>
-              </div>
-              <div class="icons-event-card">
-                <div class="icons-heart">
-                  <b-icon icon="heart" font-scale="1"></b-icon>
-                </div>
-                <div class="icons-share">
-                  <b-icon icon="share-fill" font-scale="1"></b-icon>
-                </div>
-              </div>
-            </div>
-          </div> -->
-          <!-- <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div>
-          <div id="eventcard"><EventCard/></div> -->
-       <!--  </Slick> -->
       </div>
     </div>
   </div>
@@ -161,11 +92,6 @@
 
 <script>
 
- 
- /* import Slick from 'vue-slick';
- import 'slick-carousel/slick/slick.css'; */
- /* import TopEvents from './TopEvents.vue' */
- /* import axios from "axios" */
  import EventCard from '../Eventos/EventCard.vue'
  import ItemsModel from '@/model/ItemsModel'
  import Status from "@/valueObjects/status"
@@ -174,48 +100,12 @@
   export default {
     name: "SlickTeste",
     components:{
-     /*  Slick,  */
-     /*  TopEvents, */
       EventCard
 
     },
 
     data() {
-        return {
-          slickOptions: {
-              "dots": false,
-              "infinite": true,
-              "slidesToShow": 3,
-              "slidesToScroll": 1,
-              "initialSlide": 0,
-              "responsive": [
-                {
-                  "breakpoint": 1024,
-                  "settings": {
-                    "slidesToShow": 3,
-                    "slidesToScroll": 3,
-                    "infinite": true,
-                    "dots": true
-                  }
-                },
-                {
-                  "breakpoint": 1000,
-                  "settings": {
-                    "slidesToShow": 2,
-                    "slidesToScroll": 2,
-                    "initialSlide": 2
-                  }
-                },
-                {
-                  "breakpoint": 800,
-                  "settings": {
-                    "slidesToShow": 1,
-                    "slidesToScroll": 1
-                  }
-                }
-              ]
-            },
- 
+        return { 
       items: [],
       status: Status,
       filter: {
@@ -239,72 +129,70 @@
 
     },
 
-  methods: {
-    async limparFiltro(){
-      this.filter = {
-          bairro: null,
-          status: null
-      }
-      this.items = await ItemsModel.params({
-          status: [
-              this.status.ATIVO,
-              this.status.INATIVO,
-              this.status.BAIRRO,
-              this.status.ORGANIZADOR,
-          ]
-
-      }).get();
-    },
-
-    mostrarInfo(){
-        this.$router.push({name:"EventoExpandido"});
-    },
-
-    async buscarFilter(){
-        let filter = { ... this.filter}
-        filter = this.clean(filter)
-        this.items = await ItemsModel.params(filter).get();
-    },
-
-    clean(obj){
-        for(var propName in obj){
-            if(obj[propName] === null || obj[propName] === undefined){
-                delete obj[propName]
-            }
+    methods: {
+      async limparFiltro(){
+        this.filter = {
+            bairro: null,
+            status: null
         }
-        return obj;
+        this.items = await ItemsModel.params({
+            status: [
+                this.status.ATIVO,
+                this.status.INATIVO,
+                this.status.BAIRRO,
+                this.status.ORGANIZADOR,
+            ]
+
+        }).get();
+      },
+
+        mostrarInfo(){
+            this.$router.push({name:"EventoExpandido"});
+        },
+
+        async buscarFilter(){
+            let filter = { ... this.filter}
+            filter = this.clean(filter)
+            this.items = await ItemsModel.params(filter).get();
+        },
+
+        clean(obj){
+            for(var propName in obj){
+                if(obj[propName] === null || obj[propName] === undefined){
+                    delete obj[propName]
+                }
+            }
+            return obj;
+        }
+      }
     }
 
-  }
-
-  }
 </script>
 
-
-
 <style scoped>
-.slick-prev 
+/* .slick-prev 
 .slick-next 
 .slick-arrow {
-    cursor: pointer;
-    float: right !important;
-    width: 50px;
-    height: 20px;
-    font-size: 10px;
+  cursor: pointer;
+  float: right !important;
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
 
-}
+} */
 
-button.slick-prev.slick-arrow{
-    cursor: pointer;
-    float: right !important;
-    width: 50px !important;
-    height: 20px;
-    font-size: 10px;
+/* button.slick-prev.slick-arrow{
+  cursor: pointer;
+  float: right !important;
+  width: 50px !important;
+  height: 20px;
+  font-size: 10px;
 
-}
+} */
 
 #eventcard{
  padding-right: 10px;
+ padding-bottom: 10px;
   
 }
 
