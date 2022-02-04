@@ -1,0 +1,378 @@
+{
+  "dados": [
+    {
+      "id": 1,
+      "name": "Lenne",
+      "username": "João",
+      "email": "Sincere@april.biz",
+      "imagem": "/image/pretoshow.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos",
+      "video": "https://www.youtube.com/embed/W4zlrkadJvU"
+    },
+    {
+      "id": 2,
+      "name": "Ervin",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "imagem": "/image/sabadaoqualquer.jpg ",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos",
+      "video": "https://www.youtube.com/embed/W4zlrkadJvU"
+    },
+    {
+      "id": 3,
+      "name": "Clementine",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "imagem": "/image/nomalanga.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos",
+      "video": "https://www.youtube.com/embed/25GF6EL1GZo"
+    },
+    {
+      "id": 4,
+      "name": "Patricia",
+      "username": "Karianne",
+      "email": "Julianne.OConner@kory.org",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos",
+      "video": "https://www.youtube.com/embed/25GF6EL1GZo"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey",
+      "username": "Kamren",
+      "email": "Lucio_Hettinger@annie.ca",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 7,
+      "name": "Kurtis",
+      "username": "Elwyn.Skiles",
+      "email": "Telly.Hoeger@billy.biz",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 8,
+      "name": "Nicholas",
+      "username": "Maxime_Nienow",
+      "email": "Sherwood@rosamond.me",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 9,
+      "name": "Glenna",
+      "username": "Delphine",
+      "email": "Chaim_McDermott@dana.io",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 10,
+      "name": "Clementina",
+      "username": "Moriah.Stanton",
+      "email": "Rey.Padberg@karina.biz",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+   
+    {
+      "id": 11,
+      "name": "C4 Pedro",
+      "username": "",
+      "email": "Telly.Hoeger@billy.biz",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 12,
+      "name": "Anna Joyce",
+      "username": "",
+      "email": "Telly.Hoeger@billy.biz",
+      "imagem": "/image/Luandafesta.jpg",
+      "titulo": "Nomalanga",
+      "data": "24 Fev, 15h",
+      "organizador": "Brincolândia Centro de Eventos"
+    },
+    {
+      "id": 13,
+      "evento": "Cidade de Luanda",
+      "image": "https://i.ibb.co/tmqvD26/Luandafesta.jpg",
+      "descricao": "O ano só começou e o carnaval mais agressivo da cidade vai acontecer",
+      "data": "24 de Outubro de 2020",
+      "organizador": "Man Renas",
+      "atracoes": {
+        "1": "Dj Manresnas",
+        "2": "Dj helio baiano",
+        "3": "Os santiegos",
+        "4": "Filho do Zua",
+        "5": "Felipe Hot"
+      },
+      "localizacao": {
+        "local": "Pavilhão multiuso",
+        "provincia": "Luanda",
+        "pais": "Angola"
+      },
+      "informacoes": {
+        "1": "Evento para maiores de 17 anos",
+        "2": "Evento NÃO open bar",
+        "3": "Não compre ingressos de terceiros",
+        "4": "Não serão aceitas devoluções, 7 dias após a compra",
+        "5": "Não serão aceitas devoluções, em 48 horas antes do evento",
+        "6": "Não nos responsabilizamos por eventuais perdas dentro do evento"
+      },
+      "complementar": "Boa festa, e divirta-se, afinal, tudo isto está sendo planejado com muito carinho, pensando exclusivamente em VOCÊS!",
+      "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31543.949143632897!2d13.214712569152198!3d-8.786666146101549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f27073059c75%3A0xaad4740a1bb097e3!2sIlha%20de%20Luanda!5e0!3m2!1spt-BR!2sbr!4v1632106369043!5m2!1spt-BR!2sbr"
+    },
+    {
+      "id": 14,
+      "evento": "SUMMER CONCEPT",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png",
+      "descricao": "O ano só começou e o carnaval mais agressivo da cidade vai acontecer",
+      "data": "24 de Outubro de 2020",
+      "organizador": "Hasman",
+      "atracoes": {
+        "1": "Dj Manresnas",
+        "2": "Dj helio baiano",
+        "3": "Os santiegos",
+        "4": "Filho do Zua",
+        "5": "Felipe Hot"
+      },
+      "localizacao": {
+        "local": "Pavilhão multiuso",
+        "provincia": "Luanda",
+        "pais": "Angola"
+      },
+      "informacoes": {
+        "1": "Evento para maiores de 17 anos",
+        "2": "Evento NÃO open bar",
+        "3": "Não compre ingressos de terceiros",
+        "4": "Não serão aceitas devoluções, 7 dias após a compra",
+        "5": "Não serão aceitas devoluções, em 48 horas antes do evento",
+        "6": "Não nos responsabilizamos por eventuais perdas dentro do evento"
+      },
+      "complementar": "Boa festa, e divirta-se, afinal, tudo isto está sendo planejado com muito carinho, pensando exclusivamente em VOCÊS!",
+      "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126136.2167706531!2d13.193130794099192!3d-8.902190153647268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f3dc6081663d%3A0x247c87f6f5fb3c5d!2sPavilh%C3%A3o%20Multiuso%20do%20Neves%20Bendinha!5e0!3m2!1spt-BR!2sbr!4v1629824283381!5m2!1spt-BR!2sbr"
+    }
+  ],
+  "users": [
+    {
+      "name": "Mena Simão Makengo Kazu",
+      "email": "menasimao93@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 1
+    },
+    {
+      "name": "Mena Simão Makengo Kazu",
+      "email": "ohm.hasman@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 2
+    },
+    {
+      "name": "Mena",
+      "email": "menasimao93@gmail.com",
+      "password": "qwerty",
+      "confirmPassword": "qwerty",
+      "id": 3
+    },
+    {
+      "name": "Mena Simão Makengo Kazu",
+      "email": "menasimao93@gmail.com",
+      "password": "qwerty",
+      "confirmPassword": "qwerty",
+      "id": 4
+    },
+    {
+      "name": "Angola",
+      "email": "mena@edu.com",
+      "password": "qwerty",
+      "confirmPassword": "qwerty",
+      "id": 5
+    },
+    {
+      "name": "Mena",
+      "email": "menasimao93@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 6
+    },
+    {
+      "name": "Mena",
+      "email": "simaoantonioamado@hotmail.com",
+      "password": "1234567",
+      "confirmPassword": "1234567",
+      "id": 7
+    },
+    {
+      "name": "qqqq",
+      "email": "menasimao93@gmail.com",
+      "password": "0000000",
+      "confirmPassword": "0000000",
+      "id": 8
+    }
+  ],
+  "eventos": [],
+  "cifras": [],
+  "items": [
+    {
+      "id": 1,
+      "status": 1,
+      "event": "SUMMER CONCEPT",
+      "name": "Letícia Araujo Pereira",
+      "email": "LeticiaAraujoPereira@dayrep.com",
+      "bairro": "sambizanga",
+      "data": "dezembro",
+      "organizador":"manrenas",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 2,
+      "status": 1,
+      "event": "SUMMER CONCEPT",
+      "name": "Marina Santos Araujo",
+      "email": "MarinaSantosAraujo@dayrep.com",
+      "bairro": "cazenga",
+      "data": "janeiro",
+      "organizador":"manrenas",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 3,
+      "status": 2,
+      "event": "SUMMER CONCEPT",
+      "name": "Felipe Lima Fernandes",
+      "email": "FelipeLimaFernandes@dayrep.com",
+      "bairro": "sambizanga",
+      "data": "julho",
+      "organizador":"manrenas",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 4,
+      "status": 3,
+      "event": "SUMMER CONCEPT",
+      "name": "Thaís Lima Castro",
+      "email": "ThaisLimaCastro@rhyta.com",
+      "bairro": "cacuaco",
+      "data": "dezembro",
+      "organizador":"hasman", 
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 5,
+      "status": 4,
+      "event": "SUMMER CONCEPT",
+      "name": "Renan Melo Barros",
+      "email": "RenanMeloBarros@teleworm.us",
+      "bairro": "rangel",
+      "data": "fevereiro",
+      "organizador":"hasman",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 6,
+      "status": 3,
+      "event": "SUMMER CONCEPT",
+      "name": "Matilde Pereira Carvalho", 
+      "email": "MatildePereiraCarvalho@rhyta.com",
+      "bairro": "sambizanga",
+      "data": "dezembro",  
+      "organizador":"manrenas",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    },
+    {
+      "id": 7,
+      "status": 2,
+      "event": "SUMMER CONCEPT",
+      "bairro": "benfica",
+      "data": "dezembro",
+      "organizador":"manrenas",
+      "name": "Gabriel Ferreira Gomes",
+      "email": "GabrielFerreiraGomes@jourrapide.com",
+      "image": "https://i.ibb.co/t2F8jZB/sumer.png"
+    }
+  ],
+  "cantor": [
+    {
+      "id": 1,
+      "name": "preto show",
+      "username": "",
+      "image": "https://i.ibb.co/qY8pwmd/pretoshow.jpg", 
+      "titulo": {
+        "first": {
+          "title":"Pedra ft Filho do Zua",
+          "letra": {
+            "estrofe1": "Beat penetrou, dama não maiou Mete na parede, lhe mata com dom Lhe tarraxa a tropa, dama não provoca Corpo de batota com essa tanga louca Te vi na novela, rainha do flow Quem te duvidou? Peito não bazou Vira esse teu corpo, rabo não jardou Tá bem confirmado! Assim tá bem bom!",
+            "refrao": "Me mata com calma, mãe eh! Me aperta com calma, mãe eh! Me gere com calma, mãe eh! Me mata com calma, mãe eh! Mata que mata Me mata só eh, mamã Mata que mata Me mata só eh, mamã",
+            "estrofe2": "Tá brinca, né? Tá me reclamar Tá falar no ouvido porque já quer me levar Já que é rabuda quero ver a rebolar Vou fazer sentir meu nome, vou mesmo levar, xé! Benga, me rema Liga pra policia agora, me algema Sei que não fiz nada, agora me leva Eh eh, me leva",
+            "estrofe3": "Tas ir chamar família Com esse teu rebolar Te chamo rainha nginga! Filha da tia minga Me fala só, mamã eh! Me cutxi namagala Se me meteste, me gosta! Teu toque tá me tocar eh!",
+            "estrofe4": "Xé, ai Uniik, unik, unik Rabo dela sobe e desce, fica tipo tou na baixa Porque é muita velocidade pra ela me tirar da faixa Corpo de modelo, mas quele rabo é que me encaixa E hoje eu vou ter que tirar da via essa filha da caixa Swagger tá fogo, Cartier, givenchy E esse kuduro hoje vamo agre-g E ela já sabe eu sou uami ngongadas Mas também pudera, também tou com a b-unik"
+          }
+        },
+        "2": "Sacanagem ft Biura",
+        "3": "My love",
+        "4": "Vai devagar ft Anselmo Ralph",
+        "5": "Festa da Fazenda"
+        }
+      },
+    {
+      "id": 2,
+      "name": "ary",
+      "username": "",
+      "image": "https://i.ibb.co/bW1TTfr/ary.jpg",
+      "titulo": {
+        "first": {
+          "title":"Funge na cachupa",
+          "letra": {
+            "estrofe1": "No rai ar do sol que ilumina a todos nós Há um aceno em mão, há Bissau e Bijagós Há um resplendor da Praia e São Vicente Ao sabor Luanda, um sumo caliente",
+            "refrao": "Nôs ê irmão de passado e presente Nôs ê irmão di alma e coração Nôs é irmão de passado e presente Nôs é irmão di alma e coração",
+            "estrofe2": "Na coladeira sem bata de violão do Mano Chuca Vamos saboreando com emoção funge na cachupa Na coladeira sem bata de violão do Mano Chuca Vamos saboreando com emoção funge na cachupa",
+            "estrofe3": "A brisa suave que beija a Bondosa ao Pico do Fogo Nas entranhas trazendo a matina do boié O feito valente, fevereiro bandeira É Congo em marcha pro futuro poé coé",
+            "estrofe4": "Na coladeira sem bata de violão do Mano Chuca Vamos saboreando com emoção funge na cachupa Funge na cachupa, funge na cachupa Funge na cachupa, funge na cachupa Funge na cachupa, funge na cachupa"
+          }
+        },
+        "2": "Pelo menos 50",
+        "3": "Teu grande amor",
+        "4": "Betinho",
+        "5": "Escangalha" 
+      }
+    },
+    {
+      "id": 3,
+      "name": "anselmo ralph",
+      "username": "",
+      "image": "https://i.ibb.co/bW1TTfr/ary.jpg",  
+      "titulo": {
+        "1": "Não me toca",
+        "2": "Curtição",
+        "3": "Única mulher",
+        "4": "Já fui",
+        "5": "Por favor DJ"
+      }
+    }
+  ]
+  
+}

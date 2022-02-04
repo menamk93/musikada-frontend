@@ -21,6 +21,7 @@
     "value-object": "^0.4.3",
     "vue": "^2.6.11",
     "vue-api-query": "^1.9.1",
+    "vue-carousel": "^0.18.0",
     "vue-cryptojs": "^2.1.5",
     "vue-infinite-loading": "^2.4.5",
     "vue-mixins": "^0.3.6",

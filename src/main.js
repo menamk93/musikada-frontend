@@ -18,6 +18,9 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin) */
 
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 
 import Vuelidate from "vuelidate"
 Vue.use(Vuelidate)
