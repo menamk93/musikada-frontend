@@ -373,6 +373,44 @@
         "5": "Por favor DJ"
       }
     }
+  ],
+  "videos": [
+    {
+      "id":1,
+      "cantor": "ferre gola",
+      "titulo": "pyromene",
+      "video": "https://www.youtube.com/embed/_gqolE5uFDI?start=5"
+    },
+    {
+      "id":2,
+      "cantor": "ferre gola",
+      "titulo": "Poisson d'avril",
+      "video": "https://www.youtube.com/embed/OAd92xCOT4M"
+    },
+    {
+      "id":3,
+      "cantor": "heritier watanabe",
+      "titulo": "La Kayotte",
+      "video": "https://www.youtube.com/embed/_PO_q86EoN0"
+    },
+    {
+      "id":4,
+      "cantor": "zara williams feat. c4 pedro",
+      "titulo": "posa",
+      "video": "https://www.youtube.com/embed/MMkU300eNIc"
+    },
+    {
+      "id":5,
+      "cantor": "justin timberlake",
+      "titulo": "mirrors ",
+      "video": "https://www.youtube.com/embed/uuZE_IRwLNI"
+    },
+    {
+      "id":6,
+      "cantor": "nelly feat kelly rowland",
+      "titulo": "dilemma ",
+      "video": "https://www.youtube.com/embed/8WYHDfJDPDc"
+    }
   ]
   
 }

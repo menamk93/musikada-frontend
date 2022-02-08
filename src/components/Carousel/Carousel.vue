@@ -19,7 +19,7 @@
             <b-col>
               <carousel 
               :autoplay='true'
-              :autoplayTimeout=1500 
+              :autoplayTimeout=5000 
               :autoplayHoverPause='true'
               :navigationEnabled="true"
               :paginationEnabled="false"
@@ -50,7 +50,7 @@
               <b-col>
                 <carousel 
                 :autoplay='true'
-                :autoplayTimeout=1000 
+                :autoplayTimeout=5000 
                 :autoplayHoverPause='true'
                 :navigationEnabled="true"
                 :paginationEnabled="false"

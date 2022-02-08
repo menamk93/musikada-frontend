@@ -2,7 +2,7 @@
   <div id="header">
     <b-navbar toggleable="lg" type="dark" variant="info" style="color-bg: red">
       <b-navbar-brand href="#">
-        <b-img src="@/assets/images/logo.png" fluid alt="Fluid image"></b-img>
+        <b-img @click="gotToHome" src="@/assets/images/logo.png" fluid alt="Fluid image"></b-img>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

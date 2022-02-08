@@ -3,7 +3,7 @@
     <div class="footer-left">
       <div class="footer-logo-menu">
         <div class="footer-logo">
-          <b-img src="@/assets/images/logo.png" fluid alt="Fluid image"></b-img>
+          <b-img style="cursor: pointer;" @click="gotToHome" src="@/assets/images/logo.png" fluid alt="Fluid image"></b-img>
         </div>
         <div class="footer-menu">
           <h5>Musikada</h5>
@@ -54,7 +54,16 @@ export default {
   data() {
     return {};
   },
+  methods:{
+    gotToHome(){
+      this.$router.push({name:"Home"});
+    },
+  }
+
 };
+
+
+
 </script>
 <style scoped>
 .footer {
