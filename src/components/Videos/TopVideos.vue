@@ -8,7 +8,7 @@
             :autoplayHoverPause='true'
             :navigationEnabled="true"
             :paginationEnabled="false"
-            :perPageCustom = "[[508, 2], [1000, 3]]" 
+            :perPageCustom = "[[200, 1], [508, 2], [1000, 3]]" 
             :loop='true'
             :scrollPerPage='false'
             :centerMode='true'
