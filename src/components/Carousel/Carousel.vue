@@ -29,14 +29,34 @@
               :centerMode='true'
               :navigationClickTargetSize=0
               >
+                <!-- <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
-                <slide><div id="eventcard"><EventCard/></div></slide>
-                <slide><div id="eventcard"><EventCard/></div></slide>
+                <slide><div id="eventcard"><EventCard/></div></slide> -->
+                <slide v-for="(item, index) in items" :key="index.id" id="eventcard">
+                  <div class="event-card" >
+                    <div class="header-event-card" @click="mostrarInfo">
+                      <img :src="item.image" fluid alt="Responsive image" />
+                    </div>
+                    <div class="content-event-card">
+                      <h4>{{item.event}}</h4>
+                      <p>{{item.data}}</p>
+                      <p>Vila da Gamek 2</p>
+                    </div>
+                    <div class="icons-event-card">
+                      <div class="icons-heart">
+                        <b-icon icon="heart" font-scale="1"></b-icon>
+                      </div>
+                      <div class="icons-share">
+                        <b-icon icon="share-fill" font-scale="1"></b-icon>
+                      </div>
+                    </div>
+                  </div>
+                </slide>
               </carousel>
             </b-col>
           </b-row>
@@ -92,7 +112,7 @@
 
 <script>
 
- import EventCard from '../Eventos/EventCard.vue'
+ /* import EventCard from '../Eventos/EventCard.vue' */
  import ItemsModel from '@/model/ItemsModel'
  import Status from "@/valueObjects/status"
  
@@ -100,7 +120,7 @@
   export default {
     name: "SlickTeste",
     components:{
-      EventCard
+      /* EventCard */
 
     },
 
@@ -209,9 +229,18 @@
 }
 .header-event-card, .icons-heart, .icons-share:hover {
   cursor: pointer;
+  
 }
 .header-event-card img {
   width: 100%;
+  /* height: 10em; */
+ /*  height: 13vw; */
+ /*  max-width:200px;
+  max-height:150px; */
+  /* width: auto; */
+  /* object-fit: scale-down; */
+ /*  height: 170px; */
+  height: 170px;
 }
 .content-event-card {
   padding-top: 15px;
