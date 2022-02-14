@@ -8,7 +8,7 @@
                 <div class="singerData">
                     <ul>
                         <li>{{ dados[0].name.toUpperCase()}}</li>
-                        <!-- <li style="color:#f0833b">{{ dados[0].titulo.first.title}}</li> -->
+                        <!-- <li style="color:#f0833b">{{ dados[0].titulo.first.title}}</li> --> 
                         <li>Tom-C</li>
                     </ul> 
                 </div>
