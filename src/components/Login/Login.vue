@@ -62,9 +62,10 @@
 <script>
 
 import { required, minLength, email } from "vuelidate/lib/validators"
-import UsersModel from "@/model/UsersModel";
+//import UsersModel from "@/model/UsersModel";
 import ToastMixin from "@/mixins/toastMixin.js";
 import facebookLogin from 'facebook-login-vuejs';
+import axios from 'axios'
 
 
 export default {
@@ -99,7 +100,7 @@ export default {
       this.$v.$touch();  
       if (this.$v.$error) return;
 
-      let user = await UsersModel.params({email: this.form.email}).get();
+      /*let user = await UsersModel.params({email: this.form.email}).get();
 
       if(!user || !user[0] || !user[0].email) {
         this.showToast("danger", "Erro!", "Usuário e/ou senha incorretos");
@@ -121,7 +122,40 @@ export default {
       //this.$router.push({name: "Home-logado"});
       //this.buttonClicked();
       /* this.$root.$emit('logado', true); */
-      //this.$router.push({name: 'Home'})
+      //this.$router.push({name: 'Home'})*/
+
+      
+      let loginRequest = {
+        email: this.form.email,
+        password: this.form.password
+      };
+
+      console.log(loginRequest)
+      
+      axios({
+        method: 'post',
+        url: 'https://musikada-user-heroku.herokuapp.com/users/login',
+        data: loginRequest,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+
+      }).then(resposta => {
+        this.storage({
+          userName: resposta.data.userName,
+          userEmail: resposta.data.userEmail
+        }); 
+        this.showToast("success", "Sucesso!", "Login feito com sucesso");
+        this.clearForm();
+        this.closeModal();
+        //localStorage.setItem('authUser', JSON.stringify(user));
+      }).catch(error => {
+        console.log(error)
+      })
+
+
+
+
       this.loged();
     },
 
@@ -134,6 +168,10 @@ export default {
 
     closeModal(){
       this.$root.$emit('myEvent', false);
+    },
+
+    storage(loginData){
+      localStorage.setItem('authUser', JSON.stringify(loginData));
     },
 
 

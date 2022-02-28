@@ -218,7 +218,7 @@
 
 
 .event-card {
-  padding: 15px;
+  padding: 8px;
   border-radius: 10px;
   font-size: 16px;
   /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25); */
@@ -233,22 +233,24 @@
 }
 .header-event-card img {
   width: 100%;
-  /* height: 10em; */
- /*  height: 13vw; */
+  border-radius: 5px;
+  /*  height: 10em;  */
+   /* height: 13vw; */
  /*  max-width:200px;
   max-height:150px; */
   /* width: auto; */
   /* object-fit: scale-down; */
  /*  height: 170px; */
-  height: 170px;
+   height: 140px; 
 }
 .content-event-card {
-  padding-top: 15px;
+  padding-top: 10px;
   border-bottom: 1px solid #e1e1e1;
 }
 .content-event-card h4 {
   letter-spacing: -0.015em;
-  font-size: 1em;
+  /* font-size: 1em; */
+  font-size: 1.3vw;
   font-weight: bold;
 }
 .content-event-card p {
@@ -266,7 +268,7 @@
 
 p {font-size: 1.1vw;}
 
-h4 {font-size: 1.5vw;}
+/* h4 {font-size: 1.5vw;} */
 
  #eventcard1 {
  

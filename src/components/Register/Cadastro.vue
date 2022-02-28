@@ -90,9 +90,10 @@
 
 <script>
 import { required, minLength, email, sameAs  } from "vuelidate/lib/validators";
-import UsersModel from "@/model/UsersModel"
+//import UsersModel from "@/model/UsersModel"
 import ToastMixin from "@/mixins/toastMixin.js";
 import facebookLogin from 'facebook-login-vuejs';
+import axios from 'axios'
 
 /* const baseURL = "http://localhost:3000/dados" */
 
@@ -140,17 +141,69 @@ export default {
       this.$v.$touch();
       if (this.$v.$error) return;
 
-      const user = new UsersModel(this.form);
-      user.save();
+      //const user = new UsersModel(this.form);
+      //axios.post('https://musikada-events.herokuapp.com/events');
 
-      this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
-      this.clearForm();
-      this.goToLogin();
-      this.closeModal();
+     
+      let userRequest = {
+        firstName: this.form.name,
+        secondName: "Olimpio",
+        lastName: "Musikada",
+        celPhone: {
+          phone1: "555199876532",
+          phone2: "555199876532",
+          phone3: "555199876532"
+        },
+        email: this.form.email,
+        adresses: [
+          {
+            street: "Castanheira",
+            number: "1055",
+            zipCode: "93010004",
+            reference1: "Banco BIC",
+            reference2: "Próximo a esquadra policial",
+            city: "Cacuaco",
+            provincyOrState: "Luanda",
+            country: "Angola"
+          }
+        ],
+        documentType: "BI",
+        documentNumber: "B9874C32145",
+        password: this.form.password
+      };
+
+      console.log(userRequest)
+      
+      axios({
+        method: 'post',
+        url: 'https://musikada-user-heroku.herokuapp.com/users',
+        data: userRequest,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+
+      }).then(resposta => {
+        console.log(resposta);
+        this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+        this.clearForm();
+        this.goToLogin();
+        this.closeModal();
+      }).catch(error => {
+        console.log(error)
+      })
+
+
+
+      //user.save();
+
+      //this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+      //this.clearForm();
+      //this.goToLogin();
+      //this.closeModal();
     },
 
     getValidation(field) {
-      if (this.$v.form.$dirty === false) {
+      if (this.$v.form.$dirty === false) { 
         return null;
       }
 
