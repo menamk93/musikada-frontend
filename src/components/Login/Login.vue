@@ -80,6 +80,7 @@ export default {
       }
     }
   },
+  
 
   validations: {
     form: {
@@ -100,15 +101,22 @@ export default {
       this.$v.$touch();  
       if (this.$v.$error) return;
 
-      /*let user = await UsersModel.params({email: this.form.email}).get();
+     /* let user = await UsersModel.params({
+          email: this.form.email
+        }).get();
+        
+      //alert(user)
+      window.alert(user[8].email)
 
       if(!user || !user[0] || !user[0].email) {
+        
         this.showToast("danger", "Erro!", "Usuário e/ou senha incorretos");
         this.clearForm();
         return;
       }
 
       user = user[0];
+      //window.alert(user.email)
       if(user.password !== this.form.password) {
         this.showToast("danger", "Erro!", "Usuário e/ou senha incorretos");
         this.clearForm();
@@ -118,6 +126,7 @@ export default {
       localStorage.setItem('authUser', JSON.stringify(user)); 
       //this.showToast("danger", "Erro!", "Usuário e/ou senha incorretos");
       //this.clearForm();
+      //window.alert(user)
       this.closeModal();
       //this.$router.push({name: "Home-logado"});
       //this.buttonClicked();
@@ -130,7 +139,7 @@ export default {
         password: this.form.password
       };
 
-      console.log(loginRequest)
+      //console.log(loginRequest)*/
       
       axios({
         method: 'post',
@@ -143,17 +152,20 @@ export default {
       }).then(resposta => {
         this.storage({
           userName: resposta.data.userName,
-          userEmail: resposta.data.userEmail
-        }); 
+          userEmail: resposta.data.userEmail,
+          
+        },alert(resposta.data.userEmail)
+        ); 
         this.showToast("success", "Sucesso!", "Login feito com sucesso");
         this.clearForm();
         this.closeModal();
         //localStorage.setItem('authUser', JSON.stringify(user));
+        
       }).catch(error => {
         console.log(error)
       })
 
-
+      
 
 
       this.loged();

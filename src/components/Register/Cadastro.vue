@@ -12,17 +12,35 @@
         </div>
         <br><center>Ou</center><br>
         <b-form>
-            <b-form-group
-            label-for="name"
-            >
-                <b-form-input
-                id="name"
-                type="name"
-                placeholder="Nome"
-                v-model.trim="$v.form.name.$model"
-                :state="getValidation('name')"
-                ></b-form-input>
-            </b-form-group>
+          <b-row>
+            <b-col cols="12" md="6" sm="12">
+              <b-form-group
+              label-for="firstName"
+              >
+                  <b-form-input
+                  id="firstName"
+                  type="firstName"
+                  placeholder="Primeiro Nome"
+                  v-model.trim="$v.form.firstName.$model"
+                  :state="getValidation('firstName')"
+                  ></b-form-input>
+              </b-form-group>
+            </b-col>
+
+            <b-col cols="12" md="6" sm="12">
+              <b-form-group
+              label-for="lastName"
+              >
+                  <b-form-input
+                  id="lastName"
+                  type="lastName"
+                  placeholder="Sobrenome"
+                  v-model.trim="$v.form.lastName.$model"
+                  :state="getValidation('lastName')"
+                  ></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
 
             <b-form-group
             
@@ -36,6 +54,20 @@
                 :state="getValidation('email')"
                 ></b-form-input>
             </b-form-group>
+
+            <b-form-group
+            
+              label-for="celPhone"
+              >
+                <b-form-input
+                id="celPhone"
+                type="celPhone"
+                placeholder="Telefone"
+                v-model.trim="$v.form.celPhone.$model"
+                :state="getValidation('celPhone')"
+                ></b-form-input>
+            </b-form-group>
+
 
             <b-form-group
             label-for="password"
@@ -90,10 +122,10 @@
 
 <script>
 import { required, minLength, email, sameAs  } from "vuelidate/lib/validators";
-//import UsersModel from "@/model/UsersModel"
+import UsersModel from "@/model/UsersModel"
 import ToastMixin from "@/mixins/toastMixin.js";
 import facebookLogin from 'facebook-login-vuejs';
-import axios from 'axios'
+//import axios from 'axios'
 
 /* const baseURL = "http://localhost:3000/dados" */
 
@@ -104,8 +136,10 @@ export default {
     return {
       modalShow: false,
       form: {
-        name: "",
+        firstName: "",
+        lastName: '',
         email: "",
+        celPhone: "",
         password: "",
         confirmPassword: "",
       }
@@ -114,7 +148,12 @@ export default {
 
   validations: {
     form: {
-      name: {
+      firstName: {
+        required,
+        minLength: minLength(3),
+      },
+
+      lastName: {
         required,
         minLength: minLength(3),
       },
@@ -122,6 +161,11 @@ export default {
       email: {
         required,
         email,
+      },
+
+      celPhone: {
+        required,
+        minLength: minLength(9),
       },
 
       password: {
@@ -141,11 +185,11 @@ export default {
       this.$v.$touch();
       if (this.$v.$error) return;
 
-      //const user = new UsersModel(this.form);
+      const user = new UsersModel(this.form);
       //axios.post('https://musikada-events.herokuapp.com/events');
 
      
-      let userRequest = {
+      /*let userRequest = {
         firstName: this.form.name,
         secondName: "Olimpio",
         lastName: "Musikada",
@@ -172,7 +216,7 @@ export default {
         password: this.form.password
       };
 
-      console.log(userRequest)
+      console.log(userRequest) 
       
       axios({
         method: 'post',
@@ -190,16 +234,16 @@ export default {
         this.closeModal();
       }).catch(error => {
         console.log(error)
-      })
+      })*/
 
 
 
-      //user.save();
+      user.save();
 
-      //this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
-      //this.clearForm();
-      //this.goToLogin();
-      //this.closeModal();
+      this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+      this.clearForm();
+      this.goToLogin();
+      this.closeModal();
     },
 
     getValidation(field) {
@@ -212,8 +256,9 @@ export default {
 
     clearForm() {
       this.form = {
-        email: "",
-        name: "",
+        firstName: "",
+        lastName: "",
+        celPhone: "",
         password: "",
         confirmPassword: ""
 

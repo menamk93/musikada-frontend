@@ -4,4 +4,4 @@ export default class Users extends Model {
     resource() {
         return "users";
     }
-}
+} 
