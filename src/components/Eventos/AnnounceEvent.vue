@@ -9,7 +9,6 @@
           <b-col sm="4">
             <b-form-input 
               id="eventTitle" 
-              type="eventTitle"
               v-model.trim="form.eventTitle"
               ></b-form-input>
           </b-col>
@@ -17,7 +16,7 @@
             <label for="input-default">Nome do Organizador:</label>
           </b-col>
           <b-col sm="4">
-            <b-form-input id="eventTitle" v-model="form.eventOrganizers"></b-form-input>
+            <b-form-input id="eventTitle" v-model.trim="form.eventOrganizers"></b-form-input>
           </b-col>  
         </b-row>
         <b-row>
@@ -97,7 +96,7 @@
                 <label for="input-default">Tipo:</label>
               </b-col>
               <b-col sm="10">
-                <b-form-input id="input-default" v-model="form.type"></b-form-input>
+                <b-form-input id="input-default" v-model="form.tipo"></b-form-input>
               </b-col>
             </b-row>
             <b-row class="my-4">
@@ -168,7 +167,7 @@ import axios from "axios"
           pago: "",
           free: "",
           eventPrice: "",
-          type: "",
+          tipo: "",
           phone1: "",
           street: "",
           eventDescription: ""
@@ -192,17 +191,17 @@ import axios from "axios"
       let eventRequest = {
           eventTitle: this.form.eventTitle,
           eventDescription: this.form.eventDescription,
-          eventOrganizers: "os compadres",
-          eventPrice: "2000",
-          eventStartDate: "01/03/2022 00:00:00",
-          eventFinishDate: "02/03/2022 00:00:00",
+          eventOrganizers: this.form.eventOrganizers,
+          eventPrice: this.form.eventPrice,
+          eventStartDate: this.form.eventStartDate,
+          eventFinishDate: this.form.eventFinishDate,
           eventContact: {
-            phone1: "555199876532",
+            phone1: this.form.phone1,
             phone2: "555199876532",
             phone3: "555199876532"
           },
           eventAdress: {
-            street: "Castanheira",
+            street: this.form.street,
             number: "1055",
             zipCode: "93010004",
             reference1: "Banco BIC",
@@ -294,7 +293,7 @@ import axios from "axios"
         pago: "",
         free: "",
         eventPrice: "",
-        type: "",
+        tipo: "",
         phone1: "",
         street: "",
         eventDescription: ""

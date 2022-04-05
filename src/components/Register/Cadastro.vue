@@ -122,10 +122,10 @@
 
 <script>
 import { required, minLength, email, sameAs  } from "vuelidate/lib/validators";
-import UsersModel from "@/model/UsersModel"
+//import UsersModel from "@/model/UsersModel"
 import ToastMixin from "@/mixins/toastMixin.js";
 import facebookLogin from 'facebook-login-vuejs';
-//import axios from 'axios'
+import axios from 'axios'
 
 /* const baseURL = "http://localhost:3000/dados" */
 
@@ -185,16 +185,16 @@ export default {
       this.$v.$touch();
       if (this.$v.$error) return;
 
-      const user = new UsersModel(this.form);
+      //const user = new UsersModel(this.form);
       //axios.post('https://musikada-events.herokuapp.com/events');
 
      
-      /*let userRequest = {
+      let userRequest = {
         firstName: this.form.name,
-        secondName: "Olimpio",
-        lastName: "Musikada",
+        secondName: " ",
+        lastName: this.form.lastName,
         celPhone: {
-          phone1: "555199876532",
+          phone1: this.form.celPhone,
           phone2: "555199876532",
           phone3: "555199876532"
         },
@@ -234,11 +234,11 @@ export default {
         this.closeModal();
       }).catch(error => {
         console.log(error)
-      })*/
+      })
 
 
 
-      user.save();
+      //user.save();
 
       this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
       this.clearForm();
