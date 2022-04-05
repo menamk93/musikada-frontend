@@ -1,154 +1,305 @@
 <template>
   <div>
     <b-container>
-      <b-row class="my-4">
-        <b-col sm="2" >
-          <label for="input-default">Nome do cantor:</label>
-        </b-col>
-        <b-col sm="10">
-          <b-form-input id="input-default" v-model="singer"></b-form-input>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="4">
-          <b-row id="files">
-            <b-col sm="2">
-              <label style="margin-left: 80%" for="input-default">Foto:</label>
-            </b-col>
-            <b-col sm="10">
-               <b-form-file v-model="file" plain></b-form-file>
-            </b-col>
-          </b-row>
-        </b-col>
+      <b-form>
+        <b-row class="my-4">
+          <b-col sm="2" >
+            <label for="input-default">Título do Evento:</label>
+          </b-col>
+          <b-col sm="4">
+            <b-form-input 
+              id="eventTitle" 
+              type="eventTitle"
+              v-model.trim="form.eventTitle"
+              ></b-form-input>
+          </b-col>
+          <b-col sm="2" >
+            <label for="input-default">Nome do Organizador:</label>
+          </b-col>
+          <b-col sm="4">
+            <b-form-input id="eventTitle" v-model="form.eventOrganizers"></b-form-input>
+          </b-col>  
+        </b-row>
+        <b-row>
+          <b-col cols="4">
+            <b-row id="files">
+              <b-col sm="2">
+                <label style="margin-left: 80%" for="input-default">Foto:</label>
+              </b-col>
+              <b-col sm="10">
+                <b-form-file :state="Boolean(form.file)" accept=".jpg, .png, .gif" v-model="form.file" plain>
+                  Selected file: {{ form.file ? form.file.name : '' }}
+                </b-form-file>
+              </b-col>
+            </b-row>
+          </b-col>
 
 
-        <b-col cols="7" >
-          <b-row >
-            <b-col cols="6" class="coluna">
-              <b-row >
-                <b-col sm="4">
-                  <label style="margin-left: 80%" for="input-default">Data inicio:</label>
-                </b-col>
-                <b-col sm="8">
-                  <b-form-datepicker size="sm" class="mb-2" v-model="datei" :min="min" :max="max" locale="br"></b-form-datepicker>
-                </b-col>
-              </b-row>
-            </b-col>
-            <b-col cols="6">
-              <b-row >
-                <b-col sm="3">
-                  <label style="margin-left: 80%" for="input-default">Hora de Início:</label>
-                </b-col>
-                <b-col sm="9">
-                  <b-form-timepicker size="sm" class="mb-2" v-model="houri" locale="br"></b-form-timepicker>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
+          <b-col cols="7" >
+            <b-row >
+              <b-col cols="6" class="coluna">
+                <b-row >
+                  <b-col sm="4">
+                    <label style="margin-left: 80%" for="input-default">Data inicio:</label>
+                  </b-col>
+                  <b-col sm="8">
+                    <b-form-datepicker size="sm" class="mb-2" v-model="form.eventStartDate" locale="br"></b-form-datepicker>
+                  </b-col>
+                </b-row>
+              </b-col>
+              <b-col cols="6">
+                <b-row >
+                  <b-col sm="3">
+                    <label style="margin-left: 80%" for="input-default">Hora de Início:</label>
+                  </b-col>
+                  <b-col sm="9">
+                    <b-form-timepicker size="sm" class="mb-2" v-model="form.houri" locale="br"></b-form-timepicker>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
 
 
-          <b-row >
-            <b-col cols="6">
-              <b-row >
-                <b-col sm="4">
-                  <label style="margin-left: 80%" for="input-default">Data Término:</label>
-                </b-col>
-                <b-col sm="8">
-                  <b-form-datepicker size="sm" class="mb-2" v-model="datef" :min="min" :max="max" locale="br"></b-form-datepicker>
-                </b-col>
-              </b-row>
-            </b-col>
-            <b-col cols="6">
-              <b-row >
-                <b-col sm="3">
-                  <label style="margin-left: 80%" for="input-default">Hora do término:</label>
-                </b-col>
-                <b-col sm="9">
-                  <b-form-timepicker size="sm" class="mb-2" v-model="hourf" locale="br"></b-form-timepicker>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
+            <b-row >
+              <b-col cols="6">
+                <b-row >
+                  <b-col sm="4">
+                    <label style="margin-left: 80%" for="input-default">Data Término:</label>
+                  </b-col>
+                  <b-col sm="8">
+                    <b-form-datepicker size="sm" class="mb-2" v-model="form.eventFinishDate" locale="br"></b-form-datepicker>
+                  </b-col>
+                </b-row>
+              </b-col>
+              <b-col cols="6">
+                <b-row >
+                  <b-col sm="3">
+                    <label style="margin-left: 80%" for="input-default">Hora do término:</label>
+                  </b-col>
+                  <b-col sm="9">
+                    <b-form-timepicker size="sm" class="mb-2" v-model="form.hourf" locale="br"></b-form-timepicker>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
 
 
-      <b-row >
-        <b-col sm="4" id="radio">
-          <b-form-radio name="radio-size" v-model="pago">Ingresso Pago</b-form-radio>
-          <b-form-radio name="radio-size" v-model="free">Ingresso gratuito</b-form-radio>
-        </b-col>
-        <b-col>
-          <b-row class="my-4">
-            <b-col sm="2">
-              <label for="input-default">Tipo:</label>
-            </b-col>
-            <b-col sm="10">
-              <b-form-input id="input-default" v-model="type"></b-form-input>
-            </b-col>
-          </b-row>
-          <b-row class="my-4">
-            <b-col sm="2">
-              <label for="input-default">Telefone:</label>
-            </b-col>
-            <b-col sm="10">
-              <b-form-input id="input-default" v-model="fone"></b-form-input>
-            </b-col>
-          </b-row>
-        </b-col>
+        <b-row >
+          <b-col sm="4" id="radio">
+            <b-form-radio name="radio-size" v-model="form.pago">Ingresso Pago</b-form-radio>
+            <b-form-radio name="radio-size" v-model="form.free">Ingresso gratuito</b-form-radio>
+          </b-col>
+          <b-col>
+            <b-row class="my-4">
+              <b-col sm="2">
+                <label for="input-default">Tipo:</label>
+              </b-col>
+              <b-col sm="10">
+                <b-form-input id="input-default" v-model="form.type"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="my-4">
+              <b-col sm="2">
+                <label for="input-default">Telefone:</label>
+              </b-col>
+              <b-col sm="10">
+                <b-form-input id="input-default" v-model="form.phone1"></b-form-input>
+              </b-col>
+            </b-row>
+          </b-col>
 
-        <b-col>
-          <b-row class="my-4">
-            <b-col sm="2">
-              <label style="margin-left: -20px" for="input-default">Preço:</label>
-            </b-col>
-            <b-col sm="10">
-              <b-form-input class="preco" id="input-default" v-model="preco"></b-form-input>
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
+          <b-col>
+            <b-row class="my-4">
+              <b-col sm="2">
+                <label style="margin-left: -20px" for="input-default">Preço:</label>
+              </b-col>
+              <b-col sm="10">
+                <b-form-input class="preco" id="input-default" v-model="form.eventPrice"></b-form-input>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
 
 
-      <b-row class="my-4">
-        <b-col sm="2">
-          <label for="input-default">Localização:</label>
-        </b-col>
-        <b-col sm="10">
-          <b-form-input id="input-default" v-model="localization"></b-form-input>
-        </b-col>
-      </b-row>
-      <b-row class="my-4">
-        <b-col sm="2">
-          <label for="input-default">Descrição:</label>
-        </b-col>
-        <b-col sm="10">
-          <b-form-textarea id="textarea-rows" rows="12" v-model="description" ></b-form-textarea>
-        </b-col>
-      </b-row>
-      <b-row class="my-5">
-        <b-col class="col text-center"><b-button @click="submit" class="btn btn-default">Enviar</b-button></b-col>
-      </b-row>
+        <b-row class="my-4">
+          <b-col sm="2">
+            <label for="input-default">Localização:</label>
+          </b-col>
+          <b-col sm="10">
+            <b-form-input id="input-default" v-model="form.street"></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-4">
+          <b-col sm="2">
+            <label for="input-default">Descrição do Evento:</label>
+          </b-col>
+          <b-col sm="10">
+            <b-form-textarea id="textarea-rows" rows="12" v-model="form.eventDescription" ></b-form-textarea>
+          </b-col>
+        </b-row>
+        <b-row class="my-5">
+          <b-col class="col text-center">
+            <b-button type="button" @click="submit" class="btn btn-default">Enviar</b-button>
+          </b-col>
+        </b-row>
+      </b-form>
     </b-container>
   </div>
 </template>
 
 <script>
+
+//import EventsModel from "../../model/EventsModel"
+import axios from "axios"
+
   export default {
     data() {
       return {
-        singer: '',
-        title: '',
-        text: '',
-        file: '',
-        pago: '',
-        free: '',
-        type: '',
-        fone: '',
-        localization: '',
-        description: ''
-
+        form: {
+          eventTitle: "",
+          eventOrganizers: "",
+          file: null,
+          eventStartDate: "",
+          eventFinishDate: "",
+          houri: "",
+          hourf: "",
+          pago: "",
+          free: "",
+          eventPrice: "",
+          type: "",
+          phone1: "",
+          street: "",
+          eventDescription: ""
+        }
       }
+    },
+
+     mounted: function(){
+      console.log(this.form.singer)
+    }, 
+
+    methods: {
+    submit() {
+      //this.$v.$touch();
+      //if (this.$v.$error) return;
+
+      //const event = new EventsModel(this.form);
+      //axios.post('https://musikada-events.herokuapp.com/events');
+
+     //console.log(event)
+      let eventRequest = {
+          eventTitle: this.form.eventTitle,
+          eventDescription: this.form.eventDescription,
+          eventOrganizers: "os compadres",
+          eventPrice: "2000",
+          eventStartDate: "01/03/2022 00:00:00",
+          eventFinishDate: "02/03/2022 00:00:00",
+          eventContact: {
+            phone1: "555199876532",
+            phone2: "555199876532",
+            phone3: "555199876532"
+          },
+          eventAdress: {
+            street: "Castanheira",
+            number: "1055",
+            zipCode: "93010004",
+            reference1: "Banco BIC",
+            reference2: "Próximo a esquadra policial",
+            city: "Namibe",
+            provincyOrState: "Namibe",
+            country: "Angola"
+          },
+          eventOwner: "João Armando José"
+
+
+
+
+
+        /*firstName: this.form.name,
+        secondName: "Olimpio",
+        lastName: "Musikada",
+        celPhone: {
+          phone1: "555199876532",
+          phone2: "555199876532",
+          phone3: "555199876532"
+        },
+        email: this.form.email,
+        adresses: [
+          {
+            street: "Castanheira",
+            number: "1055",
+            zipCode: "93010004",
+            reference1: "Banco BIC",
+            reference2: "Próximo a esquadra policial",
+            city: "Cacuaco",
+            provincyOrState: "Luanda",
+            country: "Angola"
+          }
+        ],
+        documentType: "BI",
+        documentNumber: "B9874C32145",
+        password: this.form.password*/
+      };
+
+      console.log(eventRequest) 
+      
+      axios({
+        method: 'post',
+        url: 'https://musikada-events.herokuapp.com/events',
+        data: eventRequest,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+
+      }).then(resposta => {
+        console.log(resposta);
+        //this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+        this.clearForm();
+        //this.goToLogin();
+        //this.closeModal();
+      }).catch(error => {
+        console.log(error)
+      })
+
+
+
+      //event.save();
+      //this.clearForm();
+
+      /*this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+      this.clearForm();
+      this.goToLogin();
+      this.closeModal();*/
+    },
+
+    /*getValidation(field) {
+      if (this.$v.form.$dirty === false) { 
+        return null;
+      }
+
+      return !this.$v.form[field].$error;
+    },*/
+
+       clearForm() {
+      this.form = {
+        eventTitle: "",
+        eventOrganizers: "",
+        file: null,
+        eventStartDate: "",
+        eventFinishDate: "",
+        houri: "",
+        hourf: "",
+        pago: "",
+        free: "",
+        eventPrice: "",
+        type: "",
+        phone1: "",
+        street: "",
+        eventDescription: ""
+      }
+    }, 
     }
   }
 </script>

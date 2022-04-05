@@ -139,7 +139,7 @@ export default {
         firstName: "",
         lastName: '',
         email: "",
-        celPhone: "",
+        celPhone: "", 
         password: "",
         confirmPassword: "",
       }

@@ -154,7 +154,7 @@ export default {
           userName: resposta.data.userName,
           userEmail: resposta.data.userEmail,
           
-        },alert(resposta.data.userEmail)
+        },
         ); 
         this.showToast("success", "Sucesso!", "Login feito com sucesso");
         this.clearForm();
