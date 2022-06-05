@@ -204,7 +204,7 @@
 
         }).get();
       },
-
+ 
         mostrarInfo(){
             this.$router.push({name:"EventoExpandido"});
         },
