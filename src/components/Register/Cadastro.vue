@@ -230,8 +230,8 @@ export default {
         console.log(resposta);
         this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
         this.clearForm();
-        //this.goToLogin();
         this.closeModal();
+        this.goToHome();
       }).catch(error => {
         console.log(error)
       })
@@ -240,10 +240,10 @@ export default {
 
       //user.save();
 
-      this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
+      /*this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
       this.clearForm();
       this.goToLogin();
-      this.closeModal();
+      this.closeModal();*/
     },
 
     getValidation(field) {
@@ -272,8 +272,10 @@ export default {
     goToLogin() {
       this.$router.push({ name: "Modal" });
     },
-  },
-  
+    goToHome() {
+      this.$router.push({ name: "Home" });
+    }
+    }
   }
 </script>
 

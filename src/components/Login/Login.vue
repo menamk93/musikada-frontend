@@ -143,13 +143,14 @@ export default {
       
       axios({
         method: 'post',
-        url: 'https://musikada-user-heroku.herokuapp.com/users/login',
+        url: 'https://musikada-user-heroku.herokuapp.com/users/',
         data: loginRequest,
         headers: {
           'Content-Type': 'application/json'
         }
 
       }).then(resposta => {
+        this.form = resposta.data
         this.storage({
           userName: resposta.data.userName,
           userEmail: resposta.data.userEmail,
@@ -160,13 +161,10 @@ export default {
         this.clearForm();
         this.closeModal();
         //localStorage.setItem('authUser', JSON.stringify(user));
-        
+        this.loged();
       }).catch(error => {
         console.log(error)
       })
-
-
-      this.loged();
     },
 
     clearForm() {
