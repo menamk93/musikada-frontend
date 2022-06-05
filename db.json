@@ -8,7 +8,7 @@
       "imagem": "/image/pretoshow.jpg",
       "titulo": "Nomalanga",
       "data": "24 Fev, 15h",
-      "organizador": "Brincolândia Centro de Eventos",
+      "organizador": "Brincolândia Centro de Eventos", 
       "video": "https://www.youtube.com/embed/W4zlrkadJvU"
     },
     {
@@ -237,7 +237,7 @@
   "eventos": [],
   "cifras": [],
   "items": [
-    {
+     {
       "id": 1,
       "status": 1,
       "event": "SUMMER CONCEPT",

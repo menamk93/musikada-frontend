@@ -19,7 +19,7 @@
             <b-col>
               <carousel 
               :autoplay='true'
-              :autoplayTimeout=5000 
+              :autoplayTimeout=1000 
               :autoplayHoverPause='true'
               :navigationEnabled="true"
               :paginationEnabled="false"
@@ -37,14 +37,14 @@
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide>
                 <slide><div id="eventcard"><EventCard/></div></slide> -->
-                <slide v-for="(item, index) in items" :key="index.id" id="eventcard">
+                <slide v-for="(event, index) in events" :key="index.id" id="eventcard">
                   <div class="event-card" >
                     <div class="header-event-card" @click="mostrarInfo">
-                      <img :src="item.image" fluid alt="Responsive image" />
+                      <img :src="event.eventImage" fluid alt="Responsive image" />
                     </div>
                     <div class="content-event-card">
-                      <h4>{{item.event}}</h4>
-                      <p>{{item.data}}</p>
+                      <h4>{{event.eventDescription}}</h4>
+                      <p>{{event.eventStartDate}}</p>
                       <p>Vila da Gamek 2</p>
                     </div>
                     <div class="icons-event-card">
@@ -70,7 +70,7 @@
               <b-col>
                 <carousel 
                 :autoplay='true'
-                :autoplayTimeout=5000 
+                :autoplayTimeout=1000 
                 :autoplayHoverPause='true'
                 :navigationEnabled="true"
                 :paginationEnabled="false"
@@ -81,14 +81,14 @@
                 :navigationClickTargetSize=0         
                 >
                  
-                    <slide v-for="(item, index) in items" :key="index.id" id="eventcard">
+                    <slide v-for="(event, index) in events" :key="index.id" id="eventcard">
                       <div class="event-card" >
                         <div class="header-event-card" @click="mostrarInfo">
-                          <img :src="item.image" fluid alt="Responsive image" />
+                          <img :src="event.eventImage" fluid alt="Responsive image" />
                         </div>
                         <div class="content-event-card">
-                          <h4>{{item.event}}</h4>
-                          <p>{{item.data}}</p>
+                          <h4>{{event.eventDescription}}</h4>
+                          <p>{{event.eventStartDate}}</p>
                           <p>Vila da Gamek 2</p>
                         </div>
                         <div class="icons-event-card">
@@ -115,6 +115,7 @@
  /* import EventCard from '../Eventos/EventCard.vue' */
  import ItemsModel from '@/model/ItemsModel'
  import Status from "@/valueObjects/status"
+ import axios from 'axios'
  
 
   export default {
@@ -125,31 +126,69 @@
     },
 
     data() {
-        return { 
-      items: [],
-      status: Status,
-      filter: {
-          bairro: null,
-          status: null
-      },
+      return { 
+        events: {
+          eventDescription: "",
+          eventImage: "",
+          eventOrganizers: "",
+          eventOwner: "",
+          eventStartDate: "",
+          eventTitle: ""
+        },
+        //events: {},
+        status: Status,
+        filter: {
+            bairro: null,
+            status: null
+        },
 
-      options: [
-        { value: null, text: "Filtrar por" },
-        { value: Status.ATIVO, text: "Ativo" },
-        { value: Status.INATIVO, text: "Inativo" },
-        { value: Status.BAIRRO, text: "Bairro" },
-        { value: Status.ORGANIZADOR, text: "Organizador" },
-        
-      ],
+        options: [
+          { value: null, text: "Filtrar por" },
+          { value: Status.ATIVO, text: "Ativo" },
+          { value: Status.INATIVO, text: "Inativo" },
+          { value: Status.BAIRRO, text: "Bairro" },
+          { value: Status.ORGANIZADOR, text: "Organizador" },
+          
+        ],
       };
     },
 
-    async created() {
+    /*async created() {
       this.items = await ItemsModel.get();
 
+    },*/
+
+    async created() {
+      
+      let eventRequest = {
+        eventDescription: this.events.eventDescription,
+        eventImage: this.events.eventImage,
+        eventOrganizers: this.events.eventOrganizers,
+        eventOwner: this.events.eventOwner,
+        eventStartDate: this.events.eventStartDate,
+        eventTitle: this.events.eventTitle
+      }
+      console.log(eventRequest)
+      axios({ 
+        method: 'get',
+        url: 'https://musikada-events.herokuapp.com/events',
+        data: eventRequest,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        
+      }).then(resposta => {
+        this.events = resposta.data
+        console.log(resposta.data);
+        
+      }).catch(error => {
+        console.log(error)  
+      })
+      
     },
 
     methods: {
+
       async limparFiltro(){
         this.filter = {
             bairro: null,

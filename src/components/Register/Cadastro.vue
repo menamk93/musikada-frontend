@@ -230,7 +230,7 @@ export default {
         console.log(resposta);
         this.showToast("success", "Sucesso!", "Usuário criado com sucesso");
         this.clearForm();
-        this.goToLogin();
+        //this.goToLogin();
         this.closeModal();
       }).catch(error => {
         console.log(error)
