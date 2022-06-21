@@ -142,7 +142,7 @@ export default {
       //console.log(loginRequest)*/
       
       axios({
-        method: 'post',
+        method: 'get',
         url: 'https://musikada-user-heroku.herokuapp.com/users/',
         data: loginRequest,
         headers: {
